@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
                 console.log('\n\nDB ERROR: ' + err);
             }
             else if(results.length>0){
-                if(results[0].level>3)
+                if(results[0].level>14)
                         res.render('soon');
                 else{
                     res.render(name,{
@@ -76,7 +76,7 @@ router.post('/login',function(req,res){
 
         }
         else if(result.length>0){
-            if(result[0].level>3)
+            if(result[0].level>14)
                 res.render('soon');
             else{
                 res.render(name,{
@@ -107,7 +107,7 @@ router.post('/login',function(req,res){
                 db.query("update userdetails set sessionid='"+sess.user_session+"' where email='"+results[0].email+"' and pass='"+results[0].pass+"'",function(err1,results1){
                     if(err){console.log('DB ERROR!!!')}
                     else{
-                        if(results[0].level>3)
+                        if(results[0].level>14)
                                         res.render('soon');
                                 else{
                                 res.render(name,{
